@@ -55,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(URLUtil.isValidUrl(et_url.getText().toString())) {
-                    Log.d("Debug", "Go to -> " + et_url.getText().toString());
                     wv_main.loadUrl(et_url.getText().toString());
                     et_url.setText("");
                     checkHistory();
@@ -68,13 +67,8 @@ public class MainActivity extends AppCompatActivity {
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                WebBackForwardList webBackForwardList = wv_main.copyBackForwardList();
                 if(wv_main.canGoBack()) {
                     wv_main.goBack();
-                    Log.d("Debug", "Back to -> " + webBackForwardList.getItemAtIndex(
-                            webBackForwardList.getCurrentIndex()-1).getUrl());
-//                    et_url.setText(webBackForwardList.getItemAtIndex(webBackForwardList.
-//                            getCurrentIndex()-1).getUrl());
                 } else {
                     Toast.makeText(MainActivity.this, "Can't go back",
                             Toast.LENGTH_SHORT).show();
@@ -86,14 +80,8 @@ public class MainActivity extends AppCompatActivity {
         btn_forward.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                WebBackForwardList webBackForwardList = wv_main.copyBackForwardList();
                 if(wv_main.canGoForward()) {
                     wv_main.goForward();
-                    Log.d("Debug", "Forward to -> " + webBackForwardList.getItemAtIndex(
-                            webBackForwardList.getCurrentIndex()+1).getUrl());
-//                    et_url.setText(webBackForwardList.getItemAtIndex(webBackForwardList.
-//                            getCurrentIndex()+1).getUrl());
-
                 } else {
                     Toast.makeText(MainActivity.this, "Can't go Forward",
                             Toast.LENGTH_SHORT).show();
@@ -108,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
                 wv_main.reload();
                 Toast.makeText(MainActivity.this, "Refreshing Web...",
                         Toast.LENGTH_SHORT).show();
-                Log.d("Debug", "Refreshing");
             }
         });
 
@@ -116,7 +103,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 wv_main.clearHistory();
-                Log.d("History", "History cleared");
                 Toast.makeText(MainActivity.this, "History cleared", Toast.LENGTH_SHORT).show();
                 checkHistory();
             }
