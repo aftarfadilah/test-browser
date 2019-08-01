@@ -1,6 +1,5 @@
 package com.aftarfadilah.browser;
 
-import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 

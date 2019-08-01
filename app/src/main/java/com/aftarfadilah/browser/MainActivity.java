@@ -18,7 +18,8 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText et_url;
     private WebView wv_main;
-    private ImageButton btn_go, btn_back, btn_forward, btn_refresh, btn_clear;
+    private ImageButton btn_back;
+    private ImageButton btn_forward;
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
@@ -40,11 +41,11 @@ public class MainActivity extends AppCompatActivity {
         et_url = findViewById(R.id.et_url);
         wv_main.loadUrl(mainUrl);
 
-        btn_go = findViewById(R.id.btn_go);
+        ImageButton btn_go = findViewById(R.id.btn_go);
         btn_back = findViewById(R.id.btn_back);
         btn_forward = findViewById(R.id.btn_forward);
-        btn_refresh = findViewById(R.id.btn_refresh);
-        btn_clear = findViewById(R.id.btn_clear);
+        ImageButton btn_refresh = findViewById(R.id.btn_refresh);
+        ImageButton btn_clear = findViewById(R.id.btn_clear);
 
         checkHistory();
 
